@@ -2,7 +2,7 @@ name: Playwright critical flows
 
 on:
   push:
-    branches: [main, homework-20]
+    branches: [main, homework-20, homework-21]
   pull_request:
     branches: [main]
   workflow_dispatch: {}
