@@ -39,7 +39,6 @@ test.describe('Обработка ошибки калькулятора', () => 
 
     await page.route('**/api/loan-calc**', async (route) => {
       await route.fulfill({
-        status: 200,
         body: '',
       });
     });
@@ -59,7 +58,6 @@ test.describe('Обработка ошибки калькулятора', () => 
 
     await page.route('**/api/loan-calc**', async (route) => {
       await route.fulfill({
-        status: 200,
         body: JSON.stringify({ monthlyPayment: 42.8 }),
       });
     });
