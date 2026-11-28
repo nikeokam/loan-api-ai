@@ -15,6 +15,18 @@ export class LoanCalculator {
     await expect(this.fields.monthlyPayment.locator).toBeVisible();
   }
 
+  async expectError(): Promise<void> {
+    await expect(this.page.getByTestId('id-small-loan-calculator-field-error')).toBeVisible();
+  }
+
+  async expectNoError(): Promise<void> {
+    await expect(this.page.getByTestId('id-small-loan-calculator-field-error')).toBeHidden();
+  }
+
+  async expectMonthlyPayment(value: string): Promise<void> {
+    await expect(this.page.getByTestId('ib-small-loan-calculator-field-monthlyPayment')).toHaveText(value);
+  }
+
   async expectDefaultValues(amount: string, term: string, monthlyPayment: string): Promise<void> {
     await expect(this.fields.amount.locator).toHaveValue(amount);
     await expect(this.fields.term.locator).toHaveValue(term);
